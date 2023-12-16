@@ -3,7 +3,15 @@ const app = express();
 const cors = require('cors')
 const connectWithDataBase= require("./connectWithDataBase/connectWithDataBase")
 
+
+// handle errors between server and client
+const corsOptions = {
+  exposedHeaders: 'Token',
+};
+
 app.use(cors())
+app.use(cors(corsOptions));
+
 
 //   the port where the server run
 const PORT = process.env.PORT || 3000
@@ -17,12 +25,14 @@ connectWithDataBase()
 
 //  routers 
 const Register = require('./routes/register')
-
+const Login = require('./routes/login')
+const GetParents = require('./routes/getParent')
+const SendMessage = require('./routes/SendMessage')
 
 app.use('/register',Register)
-
-
-
+app.use('/login',Login)
+app.use('/getParents',GetParents)
+app.use('/sendMessage',SendMessage)
 
 
 app.listen(PORT, () => {
