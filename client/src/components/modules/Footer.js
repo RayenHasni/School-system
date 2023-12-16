@@ -1,16 +1,21 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-function HomePageBody() {
+function Footer() {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>Welcome to our school</h1>
-          <p>We are glad to have you here. Our school system is designed to give both parents and administrators easy access to information and communication.</p>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="mt-auto py-3 bg-light">
+      <Container>
+        <Row>
+          <Col className="text-center">
+            <span>&copy; 2023 School System. All rights reserved.</span>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   );
 }
 
+<<<<<<< HEAD
 export default HomePageBody;
+=======
+export default Footer;
+>>>>>>> 9e1268fac50b23aed4277c45b4aed96ceff86157
