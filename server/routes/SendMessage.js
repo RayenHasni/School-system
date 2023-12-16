@@ -5,10 +5,12 @@ const twilio = require('twilio')
 const sendMessage = ()=>{
     const client = new twilio(process.env.AccountSID,process.env.AuthToken)
     client.messages.create({
-        body:"hello from dhia mlayah ",
+        body:"hello from dhia ",
         to:'+21650939301',
         from:'+12058988700'
-    }).then((message)=>console.log(message.sid))
+    }).then((message)=>console.log(message.sid)).catch((error)=>{
+        console.log('error from twilio',error)
+    })
 }
 
 router.post('/',(req,res)=>{

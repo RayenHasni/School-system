@@ -6,7 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function LoginForm() {
   return (
-    <div className="registration-form"> 
+    <div className="registration-form "  > 
     <form>
       <div className="form-icon">
           <span>
