@@ -14,8 +14,4 @@ function Footer() {
   );
 }
 
-<<<<<<< HEAD
-export default HomePageBody;
-=======
 export default Footer;
->>>>>>> 9e1268fac50b23aed4277c45b4aed96ceff86157

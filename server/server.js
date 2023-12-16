@@ -15,11 +15,14 @@ app.use(express.json());
 connectWithDataBase()
 
 
+//  routers 
+const Register = require('./routes/register')
 
 
-app.get('/',(req,res)=>{
-    res.json({message:'successfuly'})
-})
+app.use('/register',Register)
+
+
+
 
 
 app.listen(PORT, () => {

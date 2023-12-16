@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose= require("mongoose");
 
 const parentSchema = new mongoose.Schema({
     nom:{
@@ -25,7 +25,7 @@ const parentSchema = new mongoose.Schema({
         type:String,
         required:false,
     },
-    address:{
+    adress:{
         type:String,
         required:true,
     }
@@ -33,4 +33,4 @@ const parentSchema = new mongoose.Schema({
 
 const ParentModel = mongoose.model("Parent",parentSchema)
 
-export default ParentModel ;
+module.exports = ParentModel ;
