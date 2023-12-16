@@ -1,47 +1,77 @@
-import { Form, Button } from 'react-bootstrap';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./auth.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
 
 function RegistrationForm() {
   return (
-    <Form>
-      <Form.Group>
-        <Form.Label>Nom</Form.Label>
-        <Form.Control type="text" placeholder="Enter Nom" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Prenom</Form.Label>
-        <Form.Control type="text" placeholder="Enter Prenom" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Email (not required)</Form.Label>
-        <Form.Control type="email" placeholder="Enter Email" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Telephone</Form.Label>
-        <Form.Control type="tel" placeholder="Enter Telephone" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>CIN</Form.Label>
-        <Form.Control type="text" placeholder="Enter CIN" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter Password" />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Confirm Password</Form.Label>
-        <Form.Control type="password" placeholder="Confirm Password" />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Register
-      </Button>
-    </Form>
+    <div className="registration-form"> 
+      <form>
+        <div className="form-icon">
+          <span>
+            <FontAwesomeIcon icon={faUserPlus} />
+          </span>
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control item"
+            id="username"
+            placeholder="Nom"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control item"
+            id="username"
+            placeholder="Prenom"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control item"
+            id="cin"
+            placeholder="CIN"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            className="form-control item"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control item"
+            id="email"
+            placeholder="Email"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control item"
+            id="phone-number"
+            placeholder="Phone Number"
+          />
+        </div>
+        <div className="form-group center">
+          <button type="button" className="btn btn-block create-account">
+            Create Account
+          </button>
+        </div>
+        <div className="form-group center">
+          <Link to="/login" className="text-decoration-none">Already Have an Account?</Link>
+        </div>
+      </form>
+    </div>
   );
 }
 

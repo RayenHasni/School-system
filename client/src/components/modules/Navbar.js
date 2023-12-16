@@ -1,6 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { BrowserRouter as Routes, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faSchool } from '@fortawesome/free-solid-svg-icons';
@@ -16,14 +15,14 @@ function NavigationBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/Login" className="nav-link">
-              <FontAwesomeIcon icon={faUser} /> Login
-             </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/Register" className="nav-link">
               <FontAwesomeIcon icon={faUserPlus} /> Register now!
               </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/Login" className="nav-link">
+              <FontAwesomeIcon icon={faUser} /> Login
+             </Link>
             </li>
           </ul>
         </div>
