@@ -8,6 +8,7 @@ function App() {
       <NavigationBar />
       <HomePageBody />
       <Footer />
+
     </div>
   );
 }
