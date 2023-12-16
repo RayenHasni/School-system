@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const ParentModel = require("../models/Parents");
+const jwt = require("jsonwebtoken");
 
  
 
@@ -31,10 +32,16 @@ router.post('/',async(req,res)=>{
             adress,
         })
         await newParent.save()
+        const token = jwt.sign(
+            { _id: newParent._id },
+            process.env.access_token_secret
+          );
+        res.setHeader("token", token);
         return res.status(200).json({message:'account created successfuly'})
+        
     }catch(error){
         console.log("error",error)
-        res.status(500).json({message:'error to create parent '})
+        res.status(500).json({message :' error from the server'})
     }
 
 })
