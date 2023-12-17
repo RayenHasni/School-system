@@ -77,7 +77,7 @@ function RegistrationForm() {
       <form>
         <Link to="/" className="text-decoration-none fs-5 ">
           {" "}
-          <FontAwesomeIcon style={{ width: "35px" }} icon={faLeftLong} />
+          <FontAwesomeIcon style={{ width: "35px",color:'#B89E85' }} icon={faLeftLong} />
         </Link>
         <div className="form-icon">
           <span>
@@ -96,7 +96,7 @@ function RegistrationForm() {
         </div>
 
         <div className="form-group center">
-          <Link to="/login" className="text-decoration-none">
+          <Link to="/login" className="text-decoration-none text-secondary"  >
             Already Have an Account?
           </Link>
           <ToastContainer/>

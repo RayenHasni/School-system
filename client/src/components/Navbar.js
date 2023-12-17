@@ -1,46 +1,44 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSchool,faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSchool,
+  faUser,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
 
 function NavigationBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand ><Link to="/" className='text-decoration-none'> <FontAwesomeIcon icon={faSchool} /> School System</Link></Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link><Link to="/Login" >
-            <FontAwesomeIcon icon={faUser} />Login
-             </Link></Nav.Link>
-            <Nav.Link eventKey={2}>
-            <Link to="/Register">
-            <FontAwesomeIcon icon={faUserPlus} /> Register
-           </Link>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="navbar navbar-expand-lg  px-2 bg-" style={{backgroundColor:'#cad2e3'}}>
+      <div className="container-fluid">
+        <div className="">
+          <Link to="/" className="text-decoration-none fs-4"style={{color:'#6C391B'}} >
+            <FontAwesomeIcon icon={faSchool} /> School System
+          </Link>
+        </div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse     px-5 " style={{flexDirection:'row-reverse'}} id="navbarNavAltMarkup">
+          <div className="navbar-nav  ">
+            <Link to="/Login" className="mx-3 fs-6 btn btn-outline-light" style={{color:'#6C391B'}}>
+              <FontAwesomeIcon icon={faUser} />
+              Login
+            </Link>
+            <Link to="/Register" className="fs-6  btn btn-outline-light"  style={{color:'#6C391B'}} >
+              <FontAwesomeIcon icon={faUserPlus} /> Register
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 
