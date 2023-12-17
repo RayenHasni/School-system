@@ -4,9 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSchool,faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faSchool,faUser } from "@fortawesome/free-solid-svg-icons";
 
-function NavigationBar() {
+function NavBarLogged() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -14,29 +14,24 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
           </Nav>
           <Nav>
             <Nav.Link><Link to="/Login" >
             <FontAwesomeIcon icon={faUser} />Login
              </Link></Nav.Link>
-            <Nav.Link eventKey={2}>
-            <Link to="/Register">
-            <FontAwesomeIcon icon={faUserPlus} /> Register
-           </Link>
-            </Nav.Link>
+             <NavDropdown title="Profile" id="collapsible-nav-dropdown"><FontAwesomeIcon icon={faUser} />
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item >Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+              <Link to="/" >
+            <FontAwesomeIcon icon={faUser} />Logout
+             </Link>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -44,4 +39,4 @@ function NavigationBar() {
   );
 }
 
-export default NavigationBar;
+export default NavBarLogged;
