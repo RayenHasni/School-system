@@ -1,11 +1,11 @@
 const mongoose= require("mongoose");
 
 const parentSchema = new mongoose.Schema({
-    nom:{
+    FirstName:{
         type:String,
         required:true,
     },
-    prenom:{
+    LastName:{
         type:String,
         required:true,
     },
@@ -13,19 +13,19 @@ const parentSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    telph:{
+    Phone:{
         type:Number,
         required:true,
     },
-    password:{
+    Password:{
         type:String,
         required:true,
     },
-    email:{
+    Email:{
         type:String,
         required:false,
     },
-    adress:{
+    Adress:{
         type:String,
         required:true,
     }

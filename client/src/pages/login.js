@@ -1,51 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios'
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {ToastContainer,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { faLeftLong, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./auth.css";
+import Input from "../util/input";
 
 function LoginForm() {
+  const [informations, setInformations] = useState({
+      Password: null,
+      CIN: null,
+    }),
+    [error, setError] = useState(null),
+    [role, setRole] = useState("nothing");
+
+  const handleChange = (e, type) => {
+    setInformations((prev) => {
+      return { ...prev, [type]: e.target.value };
+    });
+  };
+
+  const verifyInputs= ()=>{
+    
+      if(informations.CIN===null ||informations.CIN===""){
+        return 'All field required'
+      }
+      if(informations.CIN===null ||informations.CIN===""){
+        return 'All field required'
+      }
+      const CIN = Number(informations.CIN)
+      if(!CIN){ return 'CIN should be a number'}
+      return null
+  }
+
+  const redirectParent =()=>{
+    let path = '/profile'
+     return setTimeout(() => {
+       window.location.pathname = path
+     }, 5000);
+    
+   }
+  
+  const sendToServer = async()=>{
+    await axios.post('http://localhost:8000/login',{
+      informations
+    }).then((res)=>{
+      const headers = res.headers['token']
+      localStorage.setItem('Token',headers)
+      toast.success(res.data.message)
+      redirectParent()
+    }).catch((err)=>{
+      console.log(err.response.data.message)
+      toast.error(err.response.data.message)
+    })
+  }
+ 
+
+  const sendInformations = ()=>{
+       const inputError =verifyInputs()
+      setError(inputError)
+      if(!inputError){
+        return sendToServer()
+      }else{return null}
+  }
+
+ 
   return (
-    <div className="registration-form "  > 
-    <form>
-      <div className="form-icon">
+    <div className="registration-form ">
+      <form>
+        <Link to="/" className="text-decoration-none fs-5 ">
+          {" "}
+          <FontAwesomeIcon style={{ width: "35px" }} icon={faLeftLong} />
+        </Link>
+        <div className="form-icon">
           <span>
             <FontAwesomeIcon icon={faUser} />
           </span>
         </div>
-      <div className="form-group">
-      <select className="form-select mb20" aria-label="Default select">
-      <option selected="">Your Role</option>
-      <option value={1}>Admin</option>
-      <option value={2}>Parent</option>
-      </select>
-      </div>
-      <div className="form-group">
-          <input
-            type="text"
-            className="form-control item"
-            id="cin"
-            placeholder="CIN"
-          />
-        </div>
         <div className="form-group">
-          <input
-            type="password"
-            className="form-control item"
-            id="password"
-            placeholder="Password"
-          />
+          <select className="form-select mb20"  onChange={(e)=>setRole(e.target.value)} value={role}  aria-label="Default select">
+            <option value='nothing'>Your Role</option>
+            <option value='Admin'>Admin</option>
+            <option value='Parent'>Parent</option>
+          </select>
         </div>
+
+        <Input
+          name="CIN"
+          informations={informations}
+          handleChange={handleChange}
+        />
+        <Input 
+             name="Password"
+             informations={informations}
+             handleChange={handleChange}
+             />
+
+       {error && <div className="alert alert-danger">{error}</div>}
         <div className="form-group center">
-          <button type="button" className="btn btn-block create-account">
+          <button type="button" onClick={sendInformations} className="btn btn-block create-account">
             Log IN
           </button>
         </div>
         <div className="form-group center">
-          <Link to="/register" className="text-decoration-none">Create an Account</Link>
+          <Link to="/register" className="text-decoration-none">
+            Create an Account
+          </Link>
+          <ToastContainer/>
         </div>
-</form>
-</div>
+      </form>
+    </div>
   );
 }
 
