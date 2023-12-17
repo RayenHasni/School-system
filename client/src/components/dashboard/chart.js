@@ -4,8 +4,8 @@ import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recha
 import Title from './title';
 
 // Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
+function createData(Hours, Days) {
+  return { Hours, Days };
 }
 
 const data = [
@@ -25,7 +25,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Timetable (Admin should make the timetable as img here)</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}
@@ -54,7 +54,7 @@ export default function Chart() {
                 ...theme.typography.body1,
               }}
             >
-              Sales ($)
+              Hours
             </Label>
           </YAxis>
           <Line
