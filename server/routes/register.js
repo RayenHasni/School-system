@@ -9,27 +9,27 @@ const jwt = require("jsonwebtoken");
 router.post('/',async(req,res)=>{
     try{
         const {
-            nom,
-            prenom,
+            FirstName,
+            LastName,
             CIN,
-            telph,
-            password,
-            email,
-            adress,
-          } = req.body; 
+            Phone,
+            Password,
+            Email,
+            Adress,
+          } = req.body.informations; 
         const parent = await ParentModel.findOne({CIN});
         if(parent){
-            return res.json({message:'user already exist'})
+            return res.status(400).json({message:'user already exist'})
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(Password, 10);
         const newParent = new ParentModel ({
-            nom,
-            prenom,
+            FirstName,
+            LastName,
             CIN,
-            telph,
-            password:hashedPassword,
-            email:email|null,
-            adress,
+            Phone,
+            Password:hashedPassword,
+            Email:Email|null,
+            Adress,
         })
         await newParent.save()
         const token = jwt.sign(

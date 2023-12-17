@@ -6,12 +6,12 @@ const jwt = require("jsonwebtoken");
 
 
 router.post('/',async(req,res)=>{
-   try{const {password,CIN}= req.body;
+   try{const {Password,CIN}= req.body.informations;
     const parent = await ParentModel.findOne({CIN})
     if(!parent){
         return  res.status(400).json({ message: "CIN or Password is wrong" });  
     } 
-    const validPassword = await bcrypt.compare(password,parent.password)
+    const validPassword = await bcrypt.compare(Password,parent.Password)
     if(!validPassword){
         return  res.status(400).json({ message: "CIN or Password is wrong" });  
     }
