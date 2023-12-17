@@ -1,6 +1,5 @@
-import "./Footer.css";
+import "./modules.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebook, faTwitter, faSnapchat} from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
   return (
@@ -8,17 +7,17 @@ function Footer() {
   <footer>
     <div className="social">
       <a href="#">
-      <FontAwesomeIcon icon={faInstagram} />
+      <FontAwesomeIcon icon="fa-brands fa-instagram" />
         <i className="icon ion-social-instagram" />
       </a>
       <a href="#">
-      <FontAwesomeIcon icon={faFacebook} />
+      <FontAwesomeIcon icon="fa-brands fa-facebook" />
       </a>
       <a href="#">
-      <FontAwesomeIcon icon={faSnapchat} />
+      <FontAwesomeIcon icon="fa-brands fa-snapchat" />
       </a>
       <a href="#">
-      <FontAwesomeIcon icon={faTwitter} />
+      <FontAwesomeIcon icon="fa-brands fa-twitter" />
       </a>
     </div>
     <ul className="list-inline">
