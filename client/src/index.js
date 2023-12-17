@@ -4,7 +4,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "bootstrap/dist/css/bootstrap.css";
-import fontawesome from '@fortawesome/fontawesome';
+import "font-awesome/css/font-awesome.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

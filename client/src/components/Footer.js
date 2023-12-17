@@ -7,17 +7,16 @@ function Footer() {
   <footer>
     <div className="social">
       <a href="#">
-      <FontAwesomeIcon icon="fa-brands fa-instagram" />
-        <i className="icon ion-social-instagram" />
+        <FontAwesomeIcon icon="fa-brands fa-instagram" />       
       </a>
       <a href="#">
-      <FontAwesomeIcon icon="fa-brands fa-facebook" />
+        <FontAwesomeIcon icon="fa-brands fa-facebook" />
       </a>
       <a href="#">
-      <FontAwesomeIcon icon="fa-brands fa-snapchat" />
+       <FontAwesomeIcon icon="fa-brands fa-snapchat" />
       </a>
       <a href="#">
-      <FontAwesomeIcon icon="fa-brands fa-twitter" />
+       <FontAwesomeIcon icon="fa-brands fa-twitter" />
       </a>
     </div>
     <ul className="list-inline">

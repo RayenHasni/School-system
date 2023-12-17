@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./auth.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import "./auth.css";
 
 function LoginForm() {
   return (
@@ -13,7 +13,7 @@ function LoginForm() {
             <FontAwesomeIcon icon={faUser} />
           </span>
         </div>
-      <div classname="form-group">
+      <div className="form-group">
       <select className="form-select mb20" aria-label="Default select">
       <option selected="">Your Role</option>
       <option value={1}>Admin</option>
