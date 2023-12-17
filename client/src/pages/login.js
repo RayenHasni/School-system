@@ -70,9 +70,9 @@ function LoginForm() {
   return (
     <div className="registration-form ">
       <form>
-        <Link to="/" className="text-decoration-none fs-5 ">
+        <Link to="/" className="text-decoration-none fs-5  ">
           {" "}
-          <FontAwesomeIcon style={{ width: "35px" }} icon={faLeftLong} />
+          <FontAwesomeIcon style={{ width: "35px",color:'#B89E85' }} icon={faLeftLong} />
         </Link>
         <div className="form-icon">
           <span>
@@ -105,7 +105,7 @@ function LoginForm() {
           </button>
         </div>
         <div className="form-group center">
-          <Link to="/register" className="text-decoration-none">
+          <Link to="/register" className="text-decoration-none text-secondary">
             Create an Account
           </Link>
           <ToastContainer/>
