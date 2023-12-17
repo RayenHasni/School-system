@@ -23,11 +23,8 @@
     "react-dom": "^17.0.0 || ^18.0.0 || ^18.2.0",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
-    "recharts": "^2.10.3",
-=======
     "react-toastify": "^9.1.3",
->>>>>>> 0df33b604c69fc1558efcda6d3fb4efc8a180e2d
+    "recharts": "^2.10.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

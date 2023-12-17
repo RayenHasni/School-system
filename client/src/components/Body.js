@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function HomePageBody() {
   return (
  
-      <div className="p-5 d-sm-flex d-block" >
+      <div className="p-5 d-sm-flex d-block" style={{minHeight:'90vh'}} >
         <div className=" py-3  ">
             <h1 className="pt-5  fw-bold "  style={{color:'#6C391B'}}>Welcome to our school</h1>
             <p className=" pt-3 fw-bold fs-5">We are glad to have you here. Our school system is designed to give both parents and administrators easy access to information and communication. </p>
