@@ -3,6 +3,7 @@ import Login from "./pages/login.js";
 import Register from "./pages/register.js";
 import Home from "./pages/home";
 import Profile from "./pages/profile.js";
+import NotFound from "./pages/not-found.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Profile" element={<Profile/>}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div>
