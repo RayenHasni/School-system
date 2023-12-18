@@ -23,7 +23,6 @@ function LoginForm() {
   };
 
   const verifyInputs= ()=>{
-    
       if(informations.CIN===null ||informations.CIN===""){
         return 'All field required'
       }
