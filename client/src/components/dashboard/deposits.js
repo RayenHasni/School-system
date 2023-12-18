@@ -1,27 +1,24 @@
 import * as React from 'react';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
+ import Typography from '@mui/material/Typography';
 import Title from './title';
+import { Link } from 'react-router-dom';
 
-function preventDefault(event) {
-  event.preventDefault();
-}
 
-export default function Deposits() {
+export default function Deposits({childData}) {
+ 
+
   return (
     <React.Fragment>
-      <Title>Student Name</Title>
-      <Typography component="p" variant="h4">
-        XXXX XXXXX
-      </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-        Bac Technique
-      </Typography>
-      <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View profile
-        </Link>
-      </div>
+        <React.Fragment  >
+          <Title>Student Name</Title>
+          <Typography component="p" style={{ marginTop: '2vh' }} variant="h4">
+                {childData.name}
+          </Typography>
+          <Typography color="text.secondary" style={{ marginTop: '3vh' }} sx={{ flex: 1 }}>
+                {childData.classe}
+           </Typography>
+          <Link to={`/profile/childProfile?child=${childData.name}`}>se profile</Link>
+        </React.Fragment>
     </React.Fragment>
   );
 }

@@ -1,71 +1,39 @@
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+ import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import Title from './title';
 
-// Generate Sales Data
-function createData(Hours, Days) {
-  return { Hours, Days };
-}
 
-const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00', undefined),
-];
-
-export default function Chart() {
-  const theme = useTheme();
-
+export default function Charts({tablechild}) {
+  
   return (
     <React.Fragment>
-      <Title>Timetable (Admin should make the timetable as img here)</Title>
-      <ResponsiveContainer>
-        <LineChart
-          data={data}
-          margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24,
-          }}
-        >
-          <XAxis
-            dataKey="time"
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          />
-          <YAxis
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          >
-            <Label
-              angle={270}
-              position="left"
-              style={{
-                textAnchor: 'middle',
-                fill: theme.palette.text.primary,
-                ...theme.typography.body1,
-              }}
-            >
-              Hours
-            </Label>
-          </YAxis>
-          <Line
-            isAnimationActive={false}
-            type="monotone"
-            dataKey="amount"
-            stroke={theme.palette.primary.main}
-            dot={false}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <Title>Time Table</Title>
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell>Day</TableCell>
+            <TableCell>8h-10h</TableCell>
+            <TableCell>10h-12h</TableCell>
+            <TableCell>14h-16h</TableCell>
+            <TableCell>16h-18h</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tablechild.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>{row.Day}</TableCell>
+              <TableCell>{row.Sub1}</TableCell>
+              <TableCell>{row.Sub2}</TableCell>
+              <TableCell>{row.Sub3}</TableCell>
+              <TableCell>{row.Sub4}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </React.Fragment>
   );
 }
