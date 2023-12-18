@@ -8,6 +8,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
@@ -47,7 +48,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AccountCircleIcon />
       </ListItemIcon>
-      <ListItemText primary="1st Child" />
+      <Link to='/'>hello</Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>

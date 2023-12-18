@@ -100,7 +100,7 @@ export default function Dashboard() {
               pr: '24px', // keep right padding when drawer closed
             }}
           >
-            <IconButton
+             <IconButton
               edge="start"
               color="inherit"
               aria-label="open drawer"
@@ -163,7 +163,8 @@ export default function Dashboard() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+              
+              {/* Timetable  */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
@@ -176,7 +177,8 @@ export default function Dashboard() {
                   <Chart />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              
+              {/* Student Name */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -189,15 +191,16 @@ export default function Dashboard() {
                   <Deposits />
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
+              
+              {/* Recent Absence */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
                 </Paper>
               </Grid>
+
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container>
+           </Container>
         </Box>
       </Box>
     </ThemeProvider>
