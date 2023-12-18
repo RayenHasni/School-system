@@ -1,4 +1,5 @@
-import * as React from "react";
+import React  from "react";
+import axios from 'axios'
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -92,12 +93,34 @@ const Drawer = styled(MuiDrawer, {
  const defaultTheme = createTheme();
 
  const  Profile =()=> {
+     const [currentParent,setCurrentParent]=React.useState()
+
+    const getCurrentParent = async()=>{
+       try {
+        await axios
+          .get('http://localhost:8000/getCurrentParent' , {
+            headers: {
+              token: localStorage.getItem("Token"),
+            },
+          })
+          .then((res) => {
+            console.log("successfuly", res.data);
+            setCurrentParent(res.data)
+           });
+      } catch (err) {
+        console.log("ther is an error to get current user ", err);
+      } 
+    }
+
+    React.useEffect(()=>{
+        getCurrentParent()
+    },[])
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
       setOpen(!open);
     };
 
-   return (
+    return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
@@ -132,7 +155,7 @@ const Drawer = styled(MuiDrawer, {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Welcome Back, Mr./Ms. XXXX
+            { currentParent ? `Welcome Back Mr ${currentParent.FirstName}`: "Welcome Back " }
             </Typography>
             <IconButton color="inherit">
               <Link href="/">

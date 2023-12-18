@@ -28,12 +28,12 @@ const Register = require('./routes/register')
 const Login = require('./routes/login')
 const GetParents = require('./routes/getParent')
 const SendMessage = require('./routes/SendMessage')
-
+const GetCurrentParent = require('./routes/getCurrentParent')
 app.use('/register',Register)
 app.use('/login',Login)
 app.use('/getParents',GetParents)
 app.use('/sendMessage',SendMessage)
-
+app.use('/getCurrentParent',GetCurrentParent)
 
 app.listen(PORT, () => {
     console.log(`port is listen in ${PORT}`);

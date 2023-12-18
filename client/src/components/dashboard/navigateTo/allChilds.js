@@ -14,7 +14,7 @@ const AllChilds = () => {
     <>
       {getAllChilds.map((child) => {
         return (
-          <Grid item xs={12} md={4} lg={3}>
+          <Grid item xs={12} key={child.id} md={4} lg={3}>
             <Paper
               sx={{
                 p: 2,
