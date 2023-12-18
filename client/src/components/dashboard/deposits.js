@@ -1,27 +1,59 @@
 import * as React from 'react';
-import Link from '@mui/material/Link';
+import { useLocation } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Title from './title';
 
-function preventDefault(event) {
-  event.preventDefault();
-}
+const child1 = [
+  {
+    id: 0,
+    name: 'XXXX XXXXX',
+    bac: 'Bac Technique',
+  },
+];
+const child2 = [
+  {
+    id: 0,
+    name: 'XXXX XXXXX',
+    bac: 'Bac Science',
+  },
+];
+const child3 = [
+  {
+    id: 0,
+    name: 'XXXX XXXXX',
+    bac: '2eme Eco',
+  },
+];
 
 export default function Deposits() {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const childInfo = function(pathname) {
+    if (pathname === '/child1') {
+      return child1;
+    } else if (pathname === '/child2') {
+      return child2;
+    } else if (pathname === '/child3') {
+      return child3;
+    } else if (pathname === '/profile') {
+      return [...child1, ...child2, ...child3];
+    }
+  }
+
   return (
     <React.Fragment>
-      <Title>Student Name</Title>
-      <Typography component="p" variant="h4">
-        XXXX XXXXX
-      </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-        Bac Technique
-      </Typography>
-      <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View profile
-        </Link>
-      </div>
+      {childInfo(pathname).map((child) => (
+        <React.Fragment key={child.id}>
+          <Title>Student Name</Title>
+          <Typography component="p" style={{ marginTop: '2vh' }} variant="h4">
+            {child.name}
+          </Typography>
+          <Typography color="text.secondary" style={{ marginTop: '3vh' }} sx={{ flex: 1 }}>
+            {child.bac}
+          </Typography>
+        </React.Fragment>
+      ))}
     </React.Fragment>
   );
 }

@@ -3,39 +3,40 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/profile">
       <ListItemIcon>
-        <DashboardIcon />
+        <AccountBoxIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Profile" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/profile/settings">
       <ListItemIcon>
         <SettingsApplicationsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/contact">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Contact Us" />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <LogoutIcon />
-      </ListItemIcon>
-      <ListItemText primary="Logout" />
-    </ListItemButton>
-  </React.Fragment>
+      <ListItemButton component={Link} to="/">
+        <ListItemIcon>
+          <LogoutIcon />
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
+      </ListItemButton>
+    </React.Fragment>
 );
 
 export const secondaryListItems = (
@@ -43,19 +44,19 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Children
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/profile/child1">
       <ListItemIcon>
         <AccountCircleIcon />
       </ListItemIcon>
       <ListItemText primary="1st Child" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/profile/child2">
       <ListItemIcon>
         <AccountCircleIcon />
       </ListItemIcon>
       <ListItemText primary="2nd One" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to="/profile/child3">
       <ListItemIcon>
         <AccountCircleIcon />
       </ListItemIcon>

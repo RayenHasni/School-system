@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useLocation } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,7 +13,7 @@ function createData(id, date, name, time, teacher, subject) {
   return { id, date, name, time, teacher, subject };
 }
 
-const rows = [
+const abschild1 = [
   createData(
     0,
     '16 Mar, 2019',
@@ -46,13 +47,94 @@ const rows = [
     'XXXX',
     'Electronics',
   ),
-];
+ ];
+const abschild2 = [
+  createData(
+    0,
+    '17 Mar, 2019',
+    'John Lennon',
+    '14h-15h',
+    'XXXX',
+    'Physics',
+  ),
+  createData(
+    1,
+    '17 Mar, 2019',
+    'Ringo Starr',
+    '9h-10h',
+    'XXXX',
+    'Biology',
+  ),
+  createData(2, '17 Mar, 2019', 'George Harrison', '13h-14h', 'XXXX', 'Chemistry'),
+  createData(
+    3,
+    '17 Mar, 2019',
+    'Paul McCartney',
+    '15h-16h',
+    'XXXX',
+    'Computer Science',
+  ),
+  createData(
+    4,
+    '16 Mar, 2019',
+    'Bruce Springsteen',
+    '16h-17h',
+    'XXXX',
+    'Music',
+  ),
+ ];
+ const abschild3 = [
+  createData(
+    0,
+    '18 Mar, 2019',
+    'Elvis Presley',
+    '10h-11h',
+    'XXXX',
+    'Mathematics',
+  ),
+  createData(
+    1,
+    '18 Mar, 2019',
+    'Paul McCartney',
+    '11h-12h',
+    'XXXX',
+    'Art',
+  ),
+  createData(2, '18 Mar, 2019', 'Tom Scholz', '12h-13h', 'XXXX', 'History'),
+  createData(
+    3,
+    '18 Mar, 2019',
+    'Michael Jackson',
+    '13h-14h',
+    'XXXX',
+    'English',
+  ),
+  createData(
+    4,
+    '17 Mar, 2019',
+    'Bruce Springsteen',
+    '14h-15h',
+    'XXXX',
+    'Geography',
+  ),
+ ];
+ 
 
-function preventDefault(event) {
-  event.preventDefault();
-}
 
 export default function Orders() {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const absBychild = function(pathname) {
+    if (pathname === '/child1') {
+      return abschild1;
+    } else if (pathname === '/child2') {
+      return abschild2;
+    } else if (pathname === '/child3') {
+      return abschild3;
+    }
+    else {return abschild1;}
+  }
   return (
     <React.Fragment>
       <Title>Recent Absence</Title>
@@ -67,7 +149,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {absBychild(pathname).map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
@@ -78,7 +160,7 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
+      <Link color="primary" href="#" sx={{ mt: 3 }}>
         See More
       </Link>
     </React.Fragment>

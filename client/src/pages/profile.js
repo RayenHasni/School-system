@@ -9,14 +9,13 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import HomeIcon from '@mui/icons-material/Home';
 import { mainListItems, secondaryListItems } from '../components/dashboard/listitems';
 import Chart from '../components/dashboard/chart';
 import Deposits from '../components/dashboard/deposits';
@@ -26,7 +25,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="/">
+      <Link color="inherit" href="/"style={{textDecoration:'none', fontWeight:'bold'}}>
         School System
       </Link>{' '}
       {new Date().getFullYear()}
@@ -122,9 +121,9 @@ export default function Dashboard() {
               Welcome Back, Mr./Ms. XXXX
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <VerifiedUserIcon />
-              </Badge>
+            <Link href="/">
+                <HomeIcon />
+              </Link>
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -170,7 +169,7 @@ export default function Dashboard() {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 320,
                   }}
                 >
                   <Chart />
@@ -183,7 +182,7 @@ export default function Dashboard() {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 260,
                   }}
                 >
                   <Deposits />
