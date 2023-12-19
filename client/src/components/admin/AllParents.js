@@ -1,29 +1,47 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Pagination from "../../util/pagination";
 
 
 const AllParents = ({setChoosePhone}) => {
     const url =  process.env.REACT_APP_port+'/getParents'
     const [parents, setParents] = useState(null);
+    const [showParents,setShowParents]=useState(null)
+    const [error,setError]=useState(null)
+    const showPartOfParents = (start,end)=>{
+      const showParents = parents.slice(start , end)
+      setShowParents(showParents)
+    }
+
+
     const getParents = async () => {
       await axios
         .get(url)
         .then((res) => {
+          setError(null)
           setParents(res.data);
         })
         .catch((error) => {
           console.log(error);
+          setError('there is no parent right now')
         });
     };
     useEffect(() => {
       getParents();
     }, []);
+
+    if(error!==null)return (
+      <div className="pt-5" id="allParents">
+            <h3 className="p-2">{error}</h3>
+      </div>
+
+    )
     return ( 
         <div className="pt-5" id="allParents">
           <h3 className="p-2">All parents we have</h3>
-          <ul className="list-group list-group-flush" >
-            {parents &&
-              parents.map((parent) => {
+          <ul className="list-group list-group-flush" style={{minHeight:'60vh'}} >
+            {showParents &&
+              showParents.map((parent) => {
                 return (
                   <li key={parent._id} className="list-group list-group-flush py-3 px-5">
                     <a
@@ -49,6 +67,7 @@ const AllParents = ({setChoosePhone}) => {
                 );
               })}
           </ul>
+              {parents && <Pagination parents={parents} showPartOfParents={showPartOfParents}/>}
         </div>
      );
 }
