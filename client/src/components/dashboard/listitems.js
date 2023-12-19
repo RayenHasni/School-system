@@ -5,7 +5,6 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { Link } from 'react-router-dom';
@@ -22,13 +21,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
-    <ListItemButton component={Link} to="settings">
-      <ListItemIcon>
-        <SettingsApplicationsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Settings" />
-    </ListItemButton>
-    <ListItemButton component={Link} to="contact">
+    <ListItemButton component={Link} to="/profile/Contact">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>

@@ -235,7 +235,7 @@ function createAbsences(id, date, name, time, teacher, subject) {
       'XXXX',
       'Mathematics',
     ),
-    createTable(
+    createAbsences(
       1,
       '18 Mar, 2019',
       'Paul McCartney',
@@ -243,8 +243,8 @@ function createAbsences(id, date, name, time, teacher, subject) {
       'XXXX',
       'Art',
     ),
-    createTable(2, '18 Mar, 2019', 'Tom Scholz', '12h-13h', 'XXXX', 'History'),
-    createTable(
+    createAbsences(2, '18 Mar, 2019', 'Tom Scholz', '12h-13h', 'XXXX', 'History'),
+    createAbsences(
       3,
       '18 Mar, 2019',
       'Michael Jackson',
@@ -252,7 +252,7 @@ function createAbsences(id, date, name, time, teacher, subject) {
       'XXXX',
       'English',
     ),
-    createTable(
+    createAbsences(
       4,
       '17 Mar, 2019',
       'Bruce Springsteen',

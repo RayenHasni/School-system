@@ -9,7 +9,7 @@ export default function Deposits({childData}) {
 
   return (
     <React.Fragment>
-        <React.Fragment  >
+        <React.Fragment>
           <Title>Student Name</Title>
           <Typography component="p" style={{ marginTop: '2vh' }} variant="h4">
                 {childData.name}
@@ -17,7 +17,7 @@ export default function Deposits({childData}) {
           <Typography color="text.secondary" style={{ marginTop: '3vh' }} sx={{ flex: 1 }}>
                 {childData.classe}
            </Typography>
-          <Link to={`/profile/childProfile?child=${childData.name}`}>se profile</Link>
+          <Link to={`/profile/childProfile?child=${childData.name}`}>View Profile</Link>
         </React.Fragment>
     </React.Fragment>
   );

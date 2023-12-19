@@ -7,6 +7,7 @@ import NotFound from "./pages/not-found.js";
 import Profile from "./pages/profile.js";
 import AllChilds from "./components/dashboard/navigateTo/allChilds.js";
 import SingleChild from "./components/dashboard/navigateTo/singleChild.js";
+import Contact from "./components/dashboard/navigateTo/contactUs.js";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Profile" element={<Profile/>}>
                 <Route path="" element={<AllChilds/>} />
                 <Route path="childProfile" element={<SingleChild/>}/>
+                <Route path="Contact" element={<Contact/>}/>
           </Route>
           <Route path='/Admin' element={<Admin/>}/>
           <Route path='/*' element={<NotFound/>}/>
