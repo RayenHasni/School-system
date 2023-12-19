@@ -27,7 +27,10 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Contact Us" />
     </ListItemButton>
-      <ListItemButton component={Link} to="/">
+      <ListItemButton component={Link} onClick={()=>{
+        localStorage.clear()
+        return window.location.pathname = "/"
+        }} >
         <ListItemIcon>
           <LogoutIcon />
         </ListItemIcon>

@@ -4,7 +4,7 @@ const ParentModel = require("../models/Parents");
 
 router.get('/',async(req,res)=>{
     try{   
-    const pernets = await ParentModel.find()
+    const pernets = await ParentModel.find().select("-Password")
     if(!pernets){
         res.status(400).json({message:'we dont have parents rigth now'})
     }

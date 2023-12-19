@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./auth.css";
 
 function RegistrationForm() {
+  const url =  process.env.REACT_APP_port+'/register'
   const listOfInformations = ["FirstName","LastName","Email","CIN","Password","Phone","Adress"]
   const [error,setError]=useState(null)
   const [informations, setInformations] = useState({
@@ -51,7 +52,7 @@ function RegistrationForm() {
    }
   
   const sendToServer = async()=>{
-    await axios.post('http://localhost:8000/register',{
+    await axios.post(url,{
       informations
     }).then((res)=>{
       const headers = res.headers['token']

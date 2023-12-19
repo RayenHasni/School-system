@@ -9,12 +9,14 @@ import "./auth.css";
 import Input from "../util/input";
 
 function LoginForm() {
+  const url =  process.env.REACT_APP_port+'/login'
+
   const [informations, setInformations] = useState({
       Password: null,
       CIN: null,
     }),
     [error, setError] = useState(null),
-    [role, setRole] = useState("nothing");
+    [role, setRole] = useState(null);
 
   const handleChange = (e, type) => {
     setInformations((prev) => {
@@ -23,12 +25,13 @@ function LoginForm() {
   };
 
   const verifyInputs= ()=>{
-      if(informations.CIN===null ||informations.CIN===""){
-        return 'All field required'
+      if(role===null || role==='Your Role' ){
+        return 'Please Choose Your Role '
       }
       if(informations.CIN===null ||informations.CIN===""){
         return 'All field required'
       }
+      
       const CIN = Number(informations.CIN)
       if(!CIN){ return 'CIN should be a number'}
       return null
@@ -43,7 +46,7 @@ function LoginForm() {
    }
   
   const sendToServer = async()=>{
-    await axios.post('http://localhost:8000/login',{
+    await axios.post(url,{
       informations
     }).then((res)=>{
       const headers = res.headers['token']
@@ -60,9 +63,12 @@ function LoginForm() {
   const sendInformations = ()=>{
        const inputError =verifyInputs()
       setError(inputError)
-      if(!inputError){
+      if(!inputError && role==='Parent'){
         return sendToServer()
-      }else{return null}
+      }else if(!inputError && role==='Admin'){
+        window.location.pathname = "/admin"
+      }
+      else{return null}
   }
 
  

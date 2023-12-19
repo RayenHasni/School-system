@@ -22,6 +22,7 @@ function NavigationBar() {
           >
             <FontAwesomeIcon icon={faSchool} /> School System
           </Link>
+
         </div>
         <button
           className="navbar-toggler"

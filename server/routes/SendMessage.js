@@ -2,24 +2,28 @@ const express = require("express");
 const router = express.Router();
 const twilio = require('twilio')
 
-const sendMessage = ()=>{
-    const client = new twilio(process.env.AccountSID,process.env.AuthToken)
-    client.messages.create({
-        body:"hello from dhia ",
-        to:'+21650939301',
-        from:'+12058988700'
-    }).then((message)=>console.log(message.sid)).catch((error)=>{
-        console.log('error from twilio',error)
-    })
-}
+ 
 
 router.post('/',(req,res)=>{
-    try{
-        sendMessage()
-        res.status(200).json({message:'successfuly'})
-    }catch(error){
+     try{   
+        const twilioPhone = process.env.twilioPhone
+        const phone = req.body.phone
+        const message = req.body.message
+        const client = new twilio(process.env.AccountSID,process.env.AuthToken)
+        client.messages.create({
+             body:`${message}`,
+             to:`+216${phone}`,
+             from: twilioPhone
+         }).then((message)=>{
+             console.log(message.sid)
+             return res.status(200).json({message:'message send successfuly'})
+         }).catch((error)=>{
+             console.log('error from twilio',error)
+             res.status(400).json({message:'we have an error to send sms , check your message or phone'})    
+        })
+     }catch(error){
         console.log(error)
-        res.status(400).json({message:'we have an error to send sms to parent'})
+        res.status(400).json({message:'ther is an error from the server'})    
     }
 })
 

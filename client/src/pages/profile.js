@@ -94,11 +94,12 @@ const Drawer = styled(MuiDrawer, {
 
  const  Profile =()=> {
      const [currentParent,setCurrentParent]=React.useState()
+     const url =  process.env.REACT_APP_port+'/getCurrentParent'
 
     const getCurrentParent = async()=>{
        try {
         await axios
-          .get('http://localhost:8000/getCurrentParent' , {
+          .get(url , {
             headers: {
               token: localStorage.getItem("Token"),
             },
@@ -155,7 +156,7 @@ const Drawer = styled(MuiDrawer, {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-            { currentParent ? `Welcome Back Mr ${currentParent.FirstName}`: "Welcome Back " }
+            { currentParent ? `Welcome Back  ${currentParent.FirstName}`: "Welcome Back " }
             </Typography>
             <IconButton color="inherit">
               <Link href="/">

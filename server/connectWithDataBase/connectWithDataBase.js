@@ -12,4 +12,4 @@ const connectWithDataBase = async () => {
     }
   };
 
-  module.exports= connectWithDataBase
+module.exports= connectWithDataBase 

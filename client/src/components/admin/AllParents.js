@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const AllParents = () => {
+const AllParents = ({setChoosePhone}) => {
+    const url =  process.env.REACT_APP_port+'/getParents'
     const [parents, setParents] = useState(null);
     const getParents = async () => {
       await axios
-        .get("http://localhost:8000/getParents")
+        .get(url)
         .then((res) => {
           setParents(res.data);
         })
@@ -24,7 +25,7 @@ const AllParents = () => {
             {parents &&
               parents.map((parent) => {
                 return (
-                  <li className="list-group list-group-flush py-3 px-5">
+                  <li key={parent._id} className="list-group list-group-flush py-3 px-5">
                     <a
                       className="nav-link dropdown-toggle"
                       href="#"
@@ -34,9 +35,9 @@ const AllParents = () => {
                     >
                       {parent.FirstName} {parent.LastName}
                     </a>
-                    <ul className="dropdown-menu w-25">
+                    <ul className="dropdown-menu ">
                       <li className="dropdown-item"> CIN : {parent.CIN}</li>
-                      <li className="dropdown-item"> Phone : {parent.Phone}</li>
+                      <li className="dropdown-item" onClick={()=>{setChoosePhone(parent.Phone)}}> Phone : {parent.Phone}</li>
                       <li className="dropdown-item">
                         {" "}
                         Adress : {parent.Adress}
